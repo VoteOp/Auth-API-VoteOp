@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Azure Functions isolated worker -->
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.*" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.*" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.*" OutputItemType="Analyzer" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.*" />
+    
+    <!-- SQL Server -->
+    <PackageReference Include="System.Data.SqlClient" Version="4.*" />
+
+    <!-- JWT -->
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.*" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.*" />
+  </ItemGroup>
+
+</Project>
