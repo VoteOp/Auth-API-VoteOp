@@ -1,8 +1,9 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Azure.Functions.Worker.Extensions.OpenApi.Extensions;
 using System.IO;
+using VoteOp.AuthApi.Data;
+using VoteOp.AuthApi.Security;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults()
@@ -15,11 +16,10 @@ var host = new HostBuilder()
     })
     .ConfigureServices((context, services) =>
     {
-        var configuration = context.Configuration;
-
-        // Example: register connection factory + repo as DI services
-        services.AddSingleton<Data.SqlConnectionFactory>();
-        services.AddScoped<Data.UserRepository>();
+        // DI: config is already registered by the host
+        services.AddSingleton<SqlConnectionFactory>();
+        services.AddScoped<UserRepository>();
+        services.AddSingleton<JwtTokenGenerator>();
     })
     .Build();
 

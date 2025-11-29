@@ -9,15 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Azure Functions isolated worker -->
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.*" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.*" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.*" OutputItemType="Analyzer" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.*" />
-    
-    <!-- SQL Server -->
-    <PackageReference Include="System.Data.SqlClient" Version="4.*" />
 
+    <!-- Configuration abstractions (for IConfiguration) -->
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.*" />
+
+    <!-- SQL client -->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.*" />
+    
     <!-- JWT -->
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.*" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.*" />
